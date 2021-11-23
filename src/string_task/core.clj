@@ -12,15 +12,23 @@
     )
   @cnt)
 
+(defn count-chars
+  [string-vector]
+  (def cnt (atom 0))
+  (doseq [character string-vector]
+    (reset! cnt (+ @cnt (count character)))
+    )
+  @cnt)
+
 (defn foo
   "I don't do a whole lot."
   [x]
-  (println (count-white-space "Hello World")))
+ )
 
 (defn string-problem
   [sentence words]
-  (def sentence-to-char (seq sentence))
-  (println sentence-to-char)
-  ;(def sentence-char-count (- (count sentence-to-char) (reduce (count-white-space sentence-to-char))) )
+  (def sentence-split (str/split sentence #" "))
+  ;Count the number of characters
+  (count-chars sentence-split)
   )
 
