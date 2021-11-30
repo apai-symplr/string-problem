@@ -2,6 +2,9 @@
   (:require [clojure.test :refer :all]
             [string-task.core :refer :all]))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+
+(deftest count-sentence-chars-test
+  (testing "Test count-sentence-char method"
+    (is (= 9 (count-sentence-chars ["I" "am" "Aditya"])))
+    )
+  )
