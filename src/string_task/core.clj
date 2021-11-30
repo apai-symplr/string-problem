@@ -9,12 +9,8 @@
    (if (= key-for-char-count i) (swap! cnt inc))
    (if (= (.charAt (str/upper-case key-for-char-count) 0)  i) (swap! cnt inc))
    )
-  (println @cnt)
-  )
-(defn count-chars
-  [data]
-  ;(mapcat)
-  )
+  @cnt)
+
 
 (defn count-sentence-chars
   [string-vector]
@@ -29,11 +25,16 @@
 (defn string-problem
   [sentence words]
   (def sentence-split (str/split sentence #" "))
+  (def char-count-vector [])
   (def sentence-to-seq (seq (char-array sentence)))
   (def key-for-char-count (set (char-array (str/lower-case sentence))))
   ;Count the Total number of characters
-  (count-sentence-chars sentence-split)
-
+  ;(count-sentence-chars sentence-split)
+   (doseq [i key-for-char-count]
+     ;(println (str i (count-char-instances i sentence-to-seq)))
+     (conj char-count-vector (count-char-instances i sentence-to-seq))
+     )
+  (println char-count-vector)
   )
 
 
